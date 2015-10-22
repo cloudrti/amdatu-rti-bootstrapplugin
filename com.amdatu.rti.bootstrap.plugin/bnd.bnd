@@ -1,0 +1,10 @@
+-buildpath: \
+	../cnf/plugins/org.apache.felix.dependencymanager.annotation.jar;version=file,\
+	org.apache.felix.dependencymanager,\
+	osgi.core,\
+	osgi.cmpn,\
+	org.amdatu.bootstrap.api;version=latest,\
+	org.amdatu.bootstrap.plugins.dependencymanager;version=latest
+	
+Private-Package:  \
+	com.amdatu.rti.bootstrap.plugin

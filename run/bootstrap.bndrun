@@ -1,0 +1,7 @@
+-include: ~base.bndrun
+
+-runfw: org.apache.felix.framework;version='[4.2.1,4.2.1]'
+-runee: JavaSE-1.8
+
+-runbundles.extra: org.amdatu.bootstrap.webui.browseropen;version=latest,\
+  com.amdatu.rti.bootstrap.plugin;version=latest
