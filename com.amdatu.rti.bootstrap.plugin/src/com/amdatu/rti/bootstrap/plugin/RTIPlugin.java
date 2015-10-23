@@ -28,6 +28,11 @@ public class RTIPlugin implements BootstrapPlugin {
 	@ServiceDependency
 	private volatile DmService m_dmService;
 
+	@Override
+	public String getName() {
+		return "rti";
+	}
+
 	interface RTIInstallArguments extends Parameters {
 
 		@Description("include RTI probes")
@@ -141,10 +146,5 @@ public class RTIPlugin implements BootstrapPlugin {
 	private void runFrontendLogging(List<Dependency> dependencies) {
 		dependencies.addAll(Dependency.fromStrings("com.amdatu.rti.logging.ws;version=latest",
 				"org.atmosphere.runtime;version='[2.2.4,2.3)'"));
-	}
-
-	@Override
-	public String getName() {
-		return "rti";
 	}
 }
