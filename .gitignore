@@ -1,5 +1,6 @@
 /.metadata/
 /.gradle/
+/.recommenders/
 **/bin/
 **/bin_test/
 **/generated/
