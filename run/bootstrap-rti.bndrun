@@ -1,0 +1,3 @@
+-include: bootstrap.bndrun
+
+-runbundles.rti: com.amdatu.rti.bootstrap.plugin;version=latest
