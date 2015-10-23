@@ -1,8 +1,14 @@
 package com.amdatu.rti.bootstrap.plugin;
 
 import java.io.File;
+import java.io.InputStream;
+import java.net.URL;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 
 import org.amdatu.bootstrap.command.Command;
@@ -13,20 +19,25 @@ import org.amdatu.bootstrap.command.Parameters;
 import org.amdatu.bootstrap.command.RunConfig;
 import org.amdatu.bootstrap.command.Scope;
 import org.amdatu.bootstrap.core.BootstrapPlugin;
-import org.amdatu.bootstrap.plugins.dependencymanager.DmService;
 import org.amdatu.bootstrap.services.Dependency;
 import org.amdatu.bootstrap.services.DependencyBuilder;
+import org.amdatu.bootstrap.services.Navigator;
 import org.apache.felix.dm.annotation.api.Component;
+import org.apache.felix.dm.annotation.api.Inject;
 import org.apache.felix.dm.annotation.api.ServiceDependency;
+import org.osgi.framework.BundleContext;
 
 @Component
 public class RTIPlugin implements BootstrapPlugin {
 
-	@ServiceDependency
-	private volatile DependencyBuilder m_dependencyBuilder;
+	@Inject
+	private volatile BundleContext m_bundleContext;
 
 	@ServiceDependency
-	private volatile DmService m_dmService;
+	private volatile Navigator m_navigator;
+
+	@ServiceDependency
+	private volatile DependencyBuilder m_dependencyBuilder;
 
 	@Override
 	public String getName() {
@@ -35,10 +46,10 @@ public class RTIPlugin implements BootstrapPlugin {
 
 	interface RTIInstallArguments extends Parameters {
 
-		@Description("include RTI probes")
+		@Description("include probes")
 		boolean probes();
 
-		@Description("include RTI logging")
+		@Description("include logging")
 		boolean logging();
 	}
 
@@ -77,13 +88,13 @@ public class RTIPlugin implements BootstrapPlugin {
 		@RunConfig
 		File runFile();
 
-		@Description("include RTI probes")
+		@Description("include probes")
 		boolean probes();
 
-		@Description("include RTI logging")
+		@Description("include logging")
 		boolean logging();
 
-		@Description("include RTI frontend logging")
+		@Description("include frontend logging")
 		boolean frontendLogging();
 	}
 
@@ -101,10 +112,9 @@ public class RTIPlugin implements BootstrapPlugin {
 		if (args.frontendLogging()) {
 			runFrontendLogging(dependencies);
 		}
+		copyConfiguration();
 		Builder builder = InstallResult.builder();
-		Path path = args.runFile().toPath();
-		builder.addResult(m_dependencyBuilder.addRunDependency(dependencies, path));
-		builder.addResult(m_dmService.addRunDependencies(path));
+		builder.addResult(m_dependencyBuilder.addRunDependency(dependencies, args.runFile().toPath()));
 		return builder.build();
 	}
 
@@ -146,5 +156,26 @@ public class RTIPlugin implements BootstrapPlugin {
 	private void runFrontendLogging(List<Dependency> dependencies) {
 		dependencies.addAll(Dependency.fromStrings("com.amdatu.rti.logging.ws;version=latest",
 				"org.atmosphere.runtime;version='[2.2.4,2.3)'"));
+	}
+
+	private void copyConfiguration() {
+		Path projectDir = m_navigator.getCurrentDir();
+		Path confDir = projectDir.resolve("conf");
+		Enumeration<?> entries = m_bundleContext.getBundle().findEntries("/conf", "*", true);
+		while (entries.hasMoreElements()) {
+			URL entry = (URL) entries.nextElement();
+			if (entry.toExternalForm().endsWith("/")) {
+				continue;
+			}
+			Path targetPath = confDir.resolve(Paths.get(entry.getFile().replace("/conf/", "")));
+			try (InputStream in = entry.openStream()) {
+				if (!targetPath.getParent().toFile().exists()) {
+					targetPath.getParent().toFile().mkdirs();
+				}
+				Files.copy(in, targetPath, StandardCopyOption.REPLACE_EXISTING);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }

@@ -8,3 +8,5 @@
 	
 Private-Package:  \
 	com.amdatu.rti.bootstrap.plugin
+
+Include-Resource: conf=conf
