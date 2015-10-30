@@ -1,6 +1,7 @@
 package com.amdatu.rti.bootstrap.plugin;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.nio.file.Files;
@@ -55,7 +56,7 @@ public class RTIPlugin implements BootstrapPlugin {
 
 	@Command(scope = Scope.PROJECT)
 	@Description("Add Amdatu RTI build dependencies")
-	public InstallResult install(RTIInstallArguments params) {
+	public InstallResult install(RTIInstallArguments params) throws Exception {
 		List<Dependency> dependencies = new ArrayList<>();
 		installDefaults(dependencies);
 		if (params.logging()) {
@@ -100,7 +101,7 @@ public class RTIPlugin implements BootstrapPlugin {
 
 	@Command(scope = Scope.PROJECT)
 	@Description("Add Amdatu RTI run dependencies")
-	public InstallResult run(RTIRunArguments args) {
+	public InstallResult run(RTIRunArguments args) throws Exception {
 		List<Dependency> dependencies = new ArrayList<>();
 		runDefaults(dependencies);
 		if (args.probes()) {
@@ -158,7 +159,7 @@ public class RTIPlugin implements BootstrapPlugin {
 				"org.atmosphere.runtime;version='[2.2.4,2.3)'"));
 	}
 
-	private void copyConfiguration() {
+	private void copyConfiguration() throws IOException {
 		Path projectDir = m_navigator.getCurrentDir();
 		Path confDir = projectDir.resolve("conf");
 		Enumeration<?> entries = m_bundleContext.getBundle().findEntries("/conf", "*", true);
@@ -173,8 +174,6 @@ public class RTIPlugin implements BootstrapPlugin {
 					targetPath.getParent().toFile().mkdirs();
 				}
 				Files.copy(in, targetPath, StandardCopyOption.REPLACE_EXISTING);
-			} catch (Exception e) {
-				e.printStackTrace();
 			}
 		}
 	}
