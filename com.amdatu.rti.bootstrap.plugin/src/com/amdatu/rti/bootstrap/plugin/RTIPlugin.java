@@ -1,16 +1,17 @@
 package com.amdatu.rti.bootstrap.plugin;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.Properties;
 
 import org.amdatu.bootstrap.command.Command;
 import org.amdatu.bootstrap.command.Description;
@@ -113,7 +114,7 @@ public class RTIPlugin implements BootstrapPlugin {
 		if (args.frontendLogging()) {
 			runFrontendLogging(dependencies);
 		}
-		copyConfiguration();
+		mergeConfigurationEntries();
 		Builder builder = InstallResult.builder();
 		builder.addResult(m_dependencyBuilder.addRunDependency(dependencies, args.runFile().toPath()));
 		return builder.build();
@@ -159,7 +160,7 @@ public class RTIPlugin implements BootstrapPlugin {
 				"org.atmosphere.runtime;version='[2.2.4,2.3)'"));
 	}
 
-	private void copyConfiguration() throws IOException {
+	private void mergeConfigurationEntries() throws IOException {
 		Path projectDir = m_navigator.getCurrentDir();
 		Path confDir = projectDir.resolve("conf");
 		Enumeration<?> entries = m_bundleContext.getBundle().findEntries("/conf", "*", true);
@@ -169,11 +170,33 @@ public class RTIPlugin implements BootstrapPlugin {
 				continue;
 			}
 			Path targetPath = confDir.resolve(Paths.get(entry.getFile().replace("/conf/", "")));
+			Properties newProps = new Properties();
 			try (InputStream in = entry.openStream()) {
-				if (!targetPath.getParent().toFile().exists()) {
-					targetPath.getParent().toFile().mkdirs();
+				newProps.load(in);
+			}
+			Properties existingProps = new Properties();
+			if (targetPath.toFile().exists()) {
+				try (InputStream in = new FileInputStream(targetPath.toFile())) {
+					existingProps.load(in);
 				}
-				Files.copy(in, targetPath, StandardCopyOption.REPLACE_EXISTING);
+			} else if (!targetPath.getParent().toFile().exists()) {
+				if (!targetPath.getParent().toFile().mkdirs()) {
+					throw new IOException("Failed to create configuration dir:" + targetPath.getParent());
+				}
+			}
+			StringBuilder comments = new StringBuilder().append("Merged RTI configuration");
+			Enumeration<Object> keyEnum = newProps.keys();
+			while (keyEnum.hasMoreElements()) {
+				Object key = keyEnum.nextElement();
+				if (!existingProps.containsKey(key)) {
+					comments.append("\nAdded: ").append(key).append(": ").append(newProps.get(key));
+					existingProps.put(key, newProps.get(key));
+				} else {
+					comments.append("\nSkipped: ").append(key).append(": ").append(newProps.get(key));
+				}
+			}
+			try (FileWriter writer = new FileWriter(targetPath.toFile())) {
+				existingProps.store(writer, comments.toString());
 			}
 		}
 	}
