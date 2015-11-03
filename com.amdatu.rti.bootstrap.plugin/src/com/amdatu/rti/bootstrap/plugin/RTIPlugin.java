@@ -1,9 +1,17 @@
 package com.amdatu.rti.bootstrap.plugin;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
+import java.util.Properties;
 
 import org.amdatu.bootstrap.command.Command;
 import org.amdatu.bootstrap.command.Description;
@@ -13,20 +21,25 @@ import org.amdatu.bootstrap.command.Parameters;
 import org.amdatu.bootstrap.command.RunConfig;
 import org.amdatu.bootstrap.command.Scope;
 import org.amdatu.bootstrap.core.BootstrapPlugin;
-import org.amdatu.bootstrap.plugins.dependencymanager.DmService;
 import org.amdatu.bootstrap.services.Dependency;
 import org.amdatu.bootstrap.services.DependencyBuilder;
+import org.amdatu.bootstrap.services.Navigator;
 import org.apache.felix.dm.annotation.api.Component;
+import org.apache.felix.dm.annotation.api.Inject;
 import org.apache.felix.dm.annotation.api.ServiceDependency;
+import org.osgi.framework.BundleContext;
 
 @Component
 public class RTIPlugin implements BootstrapPlugin {
 
-	@ServiceDependency
-	private volatile DependencyBuilder m_dependencyBuilder;
+	@Inject
+	private volatile BundleContext m_bundleContext;
 
 	@ServiceDependency
-	private volatile DmService m_dmService;
+	private volatile Navigator m_navigator;
+
+	@ServiceDependency
+	private volatile DependencyBuilder m_dependencyBuilder;
 
 	@Override
 	public String getName() {
@@ -35,16 +48,16 @@ public class RTIPlugin implements BootstrapPlugin {
 
 	interface RTIInstallArguments extends Parameters {
 
-		@Description("include RTI probes")
+		@Description("include probes")
 		boolean probes();
 
-		@Description("include RTI logging")
+		@Description("include logging")
 		boolean logging();
 	}
 
 	@Command(scope = Scope.PROJECT)
 	@Description("Add Amdatu RTI build dependencies")
-	public InstallResult install(RTIInstallArguments params) {
+	public InstallResult install(RTIInstallArguments params) throws Exception {
 		List<Dependency> dependencies = new ArrayList<>();
 		installDefaults(dependencies);
 		if (params.logging()) {
@@ -77,19 +90,19 @@ public class RTIPlugin implements BootstrapPlugin {
 		@RunConfig
 		File runFile();
 
-		@Description("include RTI probes")
+		@Description("include probes")
 		boolean probes();
 
-		@Description("include RTI logging")
+		@Description("include logging")
 		boolean logging();
 
-		@Description("include RTI frontend logging")
+		@Description("include frontend logging")
 		boolean frontendLogging();
 	}
 
 	@Command(scope = Scope.PROJECT)
 	@Description("Add Amdatu RTI run dependencies")
-	public InstallResult run(RTIRunArguments args) {
+	public InstallResult run(RTIRunArguments args) throws Exception {
 		List<Dependency> dependencies = new ArrayList<>();
 		runDefaults(dependencies);
 		if (args.probes()) {
@@ -101,10 +114,9 @@ public class RTIPlugin implements BootstrapPlugin {
 		if (args.frontendLogging()) {
 			runFrontendLogging(dependencies);
 		}
+		mergeConfigurationEntries();
 		Builder builder = InstallResult.builder();
-		Path path = args.runFile().toPath();
-		builder.addResult(m_dependencyBuilder.addRunDependency(dependencies, path));
-		builder.addResult(m_dmService.addRunDependencies(path));
+		builder.addResult(m_dependencyBuilder.addRunDependency(dependencies, args.runFile().toPath()));
 		return builder.build();
 	}
 
@@ -146,5 +158,46 @@ public class RTIPlugin implements BootstrapPlugin {
 	private void runFrontendLogging(List<Dependency> dependencies) {
 		dependencies.addAll(Dependency.fromStrings("com.amdatu.rti.logging.ws;version=latest",
 				"org.atmosphere.runtime;version='[2.2.4,2.3)'"));
+	}
+
+	private void mergeConfigurationEntries() throws IOException {
+		Path projectDir = m_navigator.getCurrentDir();
+		Path confDir = projectDir.resolve("conf");
+		Enumeration<?> entries = m_bundleContext.getBundle().findEntries("/conf", "*", true);
+		while (entries.hasMoreElements()) {
+			URL entry = (URL) entries.nextElement();
+			if (entry.toExternalForm().endsWith("/")) {
+				continue;
+			}
+			Path targetPath = confDir.resolve(Paths.get(entry.getFile().replace("/conf/", "")));
+			Properties newProps = new Properties();
+			try (InputStream in = entry.openStream()) {
+				newProps.load(in);
+			}
+			Properties existingProps = new Properties();
+			if (targetPath.toFile().exists()) {
+				try (InputStream in = new FileInputStream(targetPath.toFile())) {
+					existingProps.load(in);
+				}
+			} else if (!targetPath.getParent().toFile().exists()) {
+				if (!targetPath.getParent().toFile().mkdirs()) {
+					throw new IOException("Failed to create configuration dir:" + targetPath.getParent());
+				}
+			}
+			StringBuilder comments = new StringBuilder().append("Merged RTI configuration");
+			Enumeration<Object> keyEnum = newProps.keys();
+			while (keyEnum.hasMoreElements()) {
+				Object key = keyEnum.nextElement();
+				if (!existingProps.containsKey(key)) {
+					comments.append("\nAdded: ").append(key).append(": ").append(newProps.get(key));
+					existingProps.put(key, newProps.get(key));
+				} else {
+					comments.append("\nSkipped: ").append(key).append(": ").append(newProps.get(key));
+				}
+			}
+			try (FileWriter writer = new FileWriter(targetPath.toFile())) {
+				existingProps.store(writer, comments.toString());
+			}
+		}
 	}
 }
