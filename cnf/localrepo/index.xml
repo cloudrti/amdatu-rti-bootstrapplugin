@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<repository increment="1445506236000" name="Local" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
+<repository increment="1446639819000" name="Local" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
   <resource>
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="biz.aQute.bnd.annotation"/>
@@ -1323,6 +1323,367 @@
     </requirement>
     <requirement namespace="osgi.ee">
       <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.6))"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="biz.aQute.bndlib"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="3.0.0.201511011758"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="6b714a449c0cbb048c8fe5890ab180b11ceef3606555b2b5598e74b65d1ced2b"/>
+      <attribute name="url" value="biz.aQute.bndlib/biz.aQute.bndlib-3.0.0.jar"/>
+      <attribute name="size" type="Long" value="2175577"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.annotation"/>
+      <attribute name="version" type="Version" value="1.44.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.annotation.component"/>
+      <attribute name="version" type="Version" value="1.43.1"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.annotation.headers"/>
+      <attribute name="version" type="Version" value="1.1.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.annotation.licenses"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.annotation.metatype"/>
+      <attribute name="version" type="Version" value="1.45.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.annotation.plugin"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.annotation.xml"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.osgi"/>
+      <attribute name="version" type="Version" value="2.4.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+      <directive name="uses" value="aQute.bnd.build,aQute.bnd.header,aQute.bnd.service,aQute.bnd.util.dto,aQute.bnd.version,aQute.service.reporter"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.service.lifecycle"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+      <directive name="uses" value="aQute.bnd.build"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.osgi.resource"/>
+      <attribute name="version" type="Version" value="2.0.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+      <directive name="uses" value="aQute.bnd.build.model,aQute.bnd.header,aQute.bnd.osgi,aQute.bnd.util.dto,aQute.bnd.version,org.osgi.resource"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.maven"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+      <directive name="uses" value="aQute.bnd.build,aQute.bnd.osgi,aQute.bnd.service,aQute.bnd.version,aQute.service.reporter"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.build"/>
+      <attribute name="version" type="Version" value="2.6.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+      <directive name="uses" value="aQute.bnd.header,aQute.bnd.maven.support,aQute.bnd.osgi,aQute.bnd.service,aQute.bnd.service.action,aQute.bnd.version,aQute.service.reporter"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.osgi.eclipse"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+      <directive name="uses" value="aQute.service.reporter"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.differ"/>
+      <attribute name="version" type="Version" value="1.1.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+      <directive name="uses" value="aQute.bnd.header,aQute.bnd.osgi,aQute.bnd.service,aQute.bnd.service.diff,aQute.bnd.version,aQute.service.reporter"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.service"/>
+      <attribute name="version" type="Version" value="4.1.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+      <directive name="uses" value="aQute.bnd.build,aQute.bnd.osgi,aQute.bnd.version,aQute.service.reporter"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.service.action"/>
+      <attribute name="version" type="Version" value="2.0.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+      <directive name="uses" value="aQute.bnd.build"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.service.classparser"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+      <directive name="uses" value="aQute.bnd.osgi"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.service.diff"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+      <directive name="uses" value="aQute.bnd.osgi"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.service.export"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+      <directive name="uses" value="aQute.bnd.build,aQute.bnd.osgi"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.service.extension"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+      <directive name="uses" value="aQute.bnd.build"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.service.progress"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.service.remotelaunch"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.service.repository"/>
+      <attribute name="version" type="Version" value="1.3.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+      <directive name="uses" value="aQute.bnd.service,aQute.bnd.util.dto,aQute.bnd.version,aQute.service.reporter,org.osgi.resource"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.service.resolve.hook"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+      <directive name="uses" value="org.osgi.resource"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.service.url"/>
+      <attribute name="version" type="Version" value="1.2.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.help"/>
+      <attribute name="version" type="Version" value="1.1.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+      <directive name="uses" value="aQute.bnd.osgi"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.header"/>
+      <attribute name="version" type="Version" value="1.5.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+      <directive name="uses" value="aQute.bnd.version,aQute.service.reporter"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.version"/>
+      <attribute name="version" type="Version" value="1.3.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.filerepo"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+      <directive name="uses" value="aQute.bnd.version"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.lib.deployer"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+      <directive name="uses" value="aQute.bnd.annotation.plugin,aQute.bnd.service,aQute.bnd.service.repository,aQute.bnd.version,aQute.service.reporter"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.properties"/>
+      <attribute name="version" type="Version" value="2.0.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.build.model"/>
+      <attribute name="version" type="Version" value="2.7.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+      <directive name="uses" value="aQute.bnd.build,aQute.bnd.build.model.clauses,aQute.bnd.header,aQute.bnd.osgi,aQute.bnd.properties,aQute.bnd.version,org.osgi.resource"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.build.model.clauses"/>
+      <attribute name="version" type="Version" value="2.1.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+      <directive name="uses" value="aQute.bnd.header"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.service.reporter"/>
+      <attribute name="version" type="Version" value="1.0.1"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.testing"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+      <directive name="uses" value="org.osgi.framework,org.osgi.service.log"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.osgi.repository"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+      <directive name="uses" value="aQute.bnd.header,aQute.bnd.osgi,javax.xml.stream,org.osgi.resource,org.osgi.service.repository"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.maven.support"/>
+      <attribute name="version" type="Version" value="3.0.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+      <directive name="uses" value="aQute.bnd.service,aQute.bnd.version,aQute.service.reporter,javax.xml.xpath,org.w3c.dom"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.url"/>
+      <attribute name="version" type="Version" value="1.1.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+      <directive name="uses" value="aQute.bnd.annotation.plugin,aQute.bnd.service,aQute.bnd.service.url,aQute.service.reporter"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.util.dto"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="aQute.bnd.component.error"/>
+      <attribute name="version" type="Version" value="1.1.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.osgi.service.repository"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+      <directive name="uses" value="org.osgi.resource"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="org.osgi.resource"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="biz.aQute.bndlib"/>
+      <attribute name="bundle-version" type="Version" value="3.0.0.201511011758"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.resource)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.framework)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.crypto)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.crypto.spec)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.naming)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.net.ssl)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.script)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.xml.namespace)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.xml.parsers)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.xml.stream)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.xml.transform)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.xml.transform.sax)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.xml.transform.stream)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=javax.xml.xpath)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.log)(version&gt;=1.3.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.service.repository)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.w3c.dom)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=org.xml.sax)"/>
+    </requirement>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(osgi.wiring.package=junit.framework)"/>
+      <directive name="resolution" value="optional"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.7))"/>
     </requirement>
   </resource>
   <resource>
@@ -3060,7 +3421,7 @@
       <attribute name="version" type="Version" value="1.1.0"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="7b414f5469e25cdf6f8469113105675a582c4727ba91f9000e9bb36125c44096"/>
+      <attribute name="osgi.content" value="e942ca168aacecd9606c8db598459a39de36363794baabd79fa21afcd900fe72"/>
       <attribute name="url" value="org.amdatu.bootstrap.api/org.amdatu.bootstrap.api-1.1.0.jar"/>
       <attribute name="size" type="Long" value="52789"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -3439,9 +3800,9 @@
       <attribute name="version" type="Version" value="1.0.0"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="ac21fc65fe66e3157c0d1f37de136fd0fcc6bfe8d7fd184b38894b42e4639dda"/>
+      <attribute name="osgi.content" value="d5db239284f7a7df1f8e05b8db0ef58eed116bfb0558a7276a6b1a03dc415e50"/>
       <attribute name="url" value="org.amdatu.bootstrap.core.test.components/org.amdatu.bootstrap.core.test.components-1.0.0.jar"/>
-      <attribute name="size" type="Long" value="6343"/>
+      <attribute name="size" type="Long" value="6344"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
@@ -3472,9 +3833,9 @@
       <attribute name="version" type="Version" value="1.0.1"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="b2c468542ed237d80b33f632d8c7909606b32dccd017b8663f8c860ab6ee004d"/>
+      <attribute name="osgi.content" value="02250ac8002483cd74ff60eded0d3b539beb69dc95e0e55ad7ad5ebdbb99b715"/>
       <attribute name="url" value="org.amdatu.bootstrap.core.test/org.amdatu.bootstrap.core.test-1.0.1.jar"/>
-      <attribute name="size" type="Long" value="8344"/>
+      <attribute name="size" type="Long" value="8345"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
@@ -3511,7 +3872,7 @@
       <attribute name="version" type="Version" value="1.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="fdcf2b8afb416887dedf6d85cdd78f9fe18d9b89995095896394f12fe00d483f"/>
+      <attribute name="osgi.content" value="3e33ef1e3aeb44d2c207593e212c9833133e1ddf312239ec6deb81cd28fc34df"/>
       <attribute name="url" value="org.amdatu.bootstrap.core/org.amdatu.bootstrap.core-1.0.2.jar"/>
       <attribute name="size" type="Long" value="54894"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -3580,9 +3941,9 @@
       <attribute name="version" type="Version" value="1.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="e5f4bc10c9f6a436b377a691d5948e3105cd65c9b15a1d0c6684512bce4ff357"/>
+      <attribute name="osgi.content" value="231b3c394cda24a05492e8d3ef82acac6643a8cd74c7d3f2b4c3e792084cba0b"/>
       <attribute name="url" value="org.amdatu.bootstrap.http/org.amdatu.bootstrap.http-1.0.2.jar"/>
-      <attribute name="size" type="Long" value="40252"/>
+      <attribute name="size" type="Long" value="40330"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
@@ -3664,7 +4025,7 @@
       <attribute name="version" type="Version" value="1.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="046ed2528b5a4a50fbb8524b38362c044a22ca14c94cf08ec21fa40270eacc61"/>
+      <attribute name="osgi.content" value="62ff6af40cd7a04c65089620260209e16d7ff691b4c009450b197cd07bd7c494"/>
       <attribute name="url" value="org.amdatu.bootstrap.installer.git/org.amdatu.bootstrap.installer.git-1.0.2.jar"/>
       <attribute name="size" type="Long" value="8158"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -3709,9 +4070,9 @@
       <attribute name="version" type="Version" value="1.0.1"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="d9efa76875dd06fead638a078786b39cc66217cc89425c749e9484cad7c36b0a"/>
+      <attribute name="osgi.content" value="c161e3968c8ec2ef588904c67033b2a3e46930040c68f4841116650acfd63fb0"/>
       <attribute name="url" value="org.amdatu.bootstrap.java8/org.amdatu.bootstrap.java8-1.0.1.jar"/>
-      <attribute name="size" type="Long" value="5566"/>
+      <attribute name="size" type="Long" value="5564"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
@@ -3739,7 +4100,7 @@
       <attribute name="version" type="Version" value="1.0.1"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="f90875392617bd4b1d2fc64e0f201f7a4bf9d79658ce12025cec9f18161f49ae"/>
+      <attribute name="osgi.content" value="45d8f57bdfc498fafdee062302cb1d80f26b950ba37f8e07073351d5435e3115"/>
       <attribute name="url" value="org.amdatu.bootstrap.java8checker/org.amdatu.bootstrap.java8checker-1.0.1.jar"/>
       <attribute name="size" type="Long" value="4365"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -3766,7 +4127,7 @@
       <attribute name="version" type="Version" value="1.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="7f34c1a8b37d15da250c001bcccb1ba9c4d0d7eacf3ad9370501aea0a1e96480"/>
+      <attribute name="osgi.content" value="f131f956820c930d6edd4048f5bac5d7bc939ca6241e941fab0d3d19ad5edf36"/>
       <attribute name="url" value="org.amdatu.bootstrap.plugins.amdatu/org.amdatu.bootstrap.plugins.amdatu-1.0.2.jar"/>
       <attribute name="size" type="Long" value="56426"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -3823,7 +4184,7 @@
       <attribute name="version" type="Version" value="1.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="38a67f96a6114d066697068d908bd56a0e71d3fa265c2596a50565976bf345e9"/>
+      <attribute name="osgi.content" value="8851d34f4f6fb20884f0f8e18d3143041a9d64a792d1c844a7cae2cb7584cd20"/>
       <attribute name="url" value="org.amdatu.bootstrap.plugins.baseline/org.amdatu.bootstrap.plugins.baseline-1.0.2.jar"/>
       <attribute name="size" type="Long" value="22689"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -3889,9 +4250,9 @@
       <attribute name="version" type="Version" value="1.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="b2c1a9cdc059205adef1ad52643c7fee3edd0d33f69a17389c9d549b3e9e1745"/>
+      <attribute name="osgi.content" value="dc2909b541598cf10cc2c6e58ca712ae7cb1bafdaa22577c9fe152be11fb3eff"/>
       <attribute name="url" value="org.amdatu.bootstrap.plugins.dependencies/org.amdatu.bootstrap.plugins.dependencies-1.0.2.jar"/>
-      <attribute name="size" type="Long" value="15393"/>
+      <attribute name="size" type="Long" value="15395"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
@@ -3928,9 +4289,9 @@
       <attribute name="version" type="Version" value="2.0.0"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="b0520bdd58a0d9e770805f845f31d76181099317ccac3722eb1b8dd902da55d0"/>
+      <attribute name="osgi.content" value="a5c5fede6402288eff70a831bc62d09a02ef80ac72cda8b35d01d24872fd5640"/>
       <attribute name="url" value="org.amdatu.bootstrap.plugins.dependencymanager/org.amdatu.bootstrap.plugins.dependencymanager-2.0.0.jar"/>
-      <attribute name="size" type="Long" value="201837"/>
+      <attribute name="size" type="Long" value="201838"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
@@ -3992,9 +4353,9 @@
       <attribute name="version" type="Version" value="1.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="82fbb49835bde79aca9b257ebea4aa7e8eb7aee82befb2fab7c9b0a05c7d281f"/>
+      <attribute name="osgi.content" value="caf376107c833e843a0706ca1eaba270612f688b74c1f7f3f7e2c198e4363841"/>
       <attribute name="url" value="org.amdatu.bootstrap.plugins.eclipseconnector/org.amdatu.bootstrap.plugins.eclipseconnector-1.0.2.jar"/>
-      <attribute name="size" type="Long" value="11822"/>
+      <attribute name="size" type="Long" value="11817"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
@@ -4037,9 +4398,9 @@
       <attribute name="version" type="Version" value="1.1.1"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="57fa75b295657366c8ea835d05ce41e82009a10c877fcda84ef14958570468f8"/>
+      <attribute name="osgi.content" value="90812064008ab7c2bca6c8014c4cb42b51eb4c9cae1da96c0961523843454ac1"/>
       <attribute name="url" value="org.amdatu.bootstrap.plugins.gradle/org.amdatu.bootstrap.plugins.gradle-1.1.1.jar"/>
-      <attribute name="size" type="Long" value="11122"/>
+      <attribute name="size" type="Long" value="11123"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
@@ -4080,9 +4441,9 @@
       <attribute name="version" type="Version" value="1.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="3240da06a106357a1ff72ca1abeb2c48a2aa1e4b8417cc0fda7a0b261a80b31d"/>
+      <attribute name="osgi.content" value="63e8a7c9238d10a45a38f96c9e26b840b114843e11bd5f70335646eb79a2a7ac"/>
       <attribute name="url" value="org.amdatu.bootstrap.plugins.itest/org.amdatu.bootstrap.plugins.itest-1.0.2.jar"/>
-      <attribute name="size" type="Long" value="9413"/>
+      <attribute name="size" type="Long" value="9415"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
@@ -4125,7 +4486,7 @@
       <attribute name="version" type="Version" value="1.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="d18bb464e20bcc9f72f66a4f824609ae1124f07e8cd21e81d12314faa0387eaa"/>
+      <attribute name="osgi.content" value="b95aa504c53f23a76cd3fbc7501842c6ecb6a7c582ea8e0b8d20c5fc4436a3ce"/>
       <attribute name="url" value="org.amdatu.bootstrap.plugins.licenseheaders/org.amdatu.bootstrap.plugins.licenseheaders-1.0.2.jar"/>
       <attribute name="size" type="Long" value="11070"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -4164,7 +4525,7 @@
       <attribute name="version" type="Version" value="1.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="e991e17c81efb24303d0dcba8bdde63d6489403689990a8f2070eedb55068b9f"/>
+      <attribute name="osgi.content" value="7b024aff02d90100c9edb8a7448b949231a1417817d48a3e490edaa3de0631ab"/>
       <attribute name="url" value="org.amdatu.bootstrap.plugins.project/org.amdatu.bootstrap.plugins.project-1.0.2.jar"/>
       <attribute name="size" type="Long" value="24960"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -4221,7 +4582,7 @@
       <attribute name="version" type="Version" value="1.0.1"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="b386c7d9ee429f23d585ccb1e8271fc4c4b6253f689e5449f56d903aecdb71c1"/>
+      <attribute name="osgi.content" value="91a3eb1bb8884ebd5a5a3a393a0cc4b68e2ebc23e60d9bb2a4f112ed691ea587"/>
       <attribute name="url" value="org.amdatu.bootstrap.plugins.repositories.itest/org.amdatu.bootstrap.plugins.repositories.itest-1.0.1.jar"/>
       <attribute name="size" type="Long" value="8221"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -4266,9 +4627,9 @@
       <attribute name="version" type="Version" value="1.1.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="8e1e7bc85cd26c2f251131b593c321f501519a9accac9a3d3ca3f5ef96385a9d"/>
+      <attribute name="osgi.content" value="57871872440bd85dda55b327eeffeb7f58f1dac75fe2ec148dcc893de380ca48"/>
       <attribute name="url" value="org.amdatu.bootstrap.plugins.repositories/org.amdatu.bootstrap.plugins.repositories-1.1.2.jar"/>
-      <attribute name="size" type="Long" value="24158"/>
+      <attribute name="size" type="Long" value="24159"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
@@ -4353,9 +4714,9 @@
       <attribute name="version" type="Version" value="1.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="97a2a956755586db816e217ce69739987ca7d70cfbb921fe8b0f21c82105005d"/>
+      <attribute name="osgi.content" value="89fd7caca89d3457757fb8358b2e5a7a8e3cf4a109aa01f849817abb9a9f728d"/>
       <attribute name="url" value="org.amdatu.bootstrap.plugins.webui/org.amdatu.bootstrap.plugins.webui-1.0.2.jar"/>
-      <attribute name="size" type="Long" value="2115019"/>
+      <attribute name="size" type="Long" value="2115018"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
@@ -4395,9 +4756,9 @@
       <attribute name="version" type="Version" value="1.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="c1f0f3976520d5c9e5e004d6caadc5186ab00ee660c75acd24380e342ecf7b48"/>
+      <attribute name="osgi.content" value="024acd2a7fc8372cec8668d79db9b8d42bc1e2d05501eddd7fbba0f95cc6a458"/>
       <attribute name="url" value="org.amdatu.bootstrap.plugins.workspace/org.amdatu.bootstrap.plugins.workspace-1.0.2.jar"/>
-      <attribute name="size" type="Long" value="14465625"/>
+      <attribute name="size" type="Long" value="17989717"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
@@ -4440,7 +4801,7 @@
       <attribute name="version" type="Version" value="1.0.1"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="5aed70f86d5be8f2458168d990751c90c8d12541507cc3cf3803fefa4e7f9850"/>
+      <attribute name="osgi.content" value="cb1fdc44ac22dd764bb6e1e30e5e10561d589965860b33cd9952bd70e17fd300"/>
       <attribute name="url" value="org.amdatu.bootstrap.template.api/org.amdatu.bootstrap.template.api-1.0.1.jar"/>
       <attribute name="size" type="Long" value="12615"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -4474,9 +4835,9 @@
       <attribute name="version" type="Version" value="1.0.1"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="d0fbd94c9a1d48506e4025a0be946e7d9beeebd2222b8a1e105e732728a7d710"/>
+      <attribute name="osgi.content" value="acb27f931bd02a280f83e2df920b2fdd3b4f01a4799c31e9928177212e42adce"/>
       <attribute name="url" value="org.amdatu.bootstrap.template.template/org.amdatu.bootstrap.template.template-1.0.1.jar"/>
-      <attribute name="size" type="Long" value="17546"/>
+      <attribute name="size" type="Long" value="17691"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
@@ -4514,7 +4875,7 @@
       <attribute name="version" type="Version" value="1.0.0"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="6c789aafdc90c4a3e191cf26d91e25ce3067454029c0efdcb0ee1d09fba39ac2"/>
+      <attribute name="osgi.content" value="017875090c1142dd847c44726204ef89adcb485d4c9c44ce71de5ecce332d323"/>
       <attribute name="url" value="org.amdatu.bootstrap.testutils/org.amdatu.bootstrap.testutils-1.0.0.jar"/>
       <attribute name="size" type="Long" value="8564"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
@@ -4561,21 +4922,21 @@
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="org.amdatu.bootstrap.versionprint"/>
       <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" type="Version" value="0.0.0.201510201224"/>
+      <attribute name="version" type="Version" value="0.0.0.201511041206"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="c69b818bb08a49ba1ac8439485dd4a29e245de2793c294056201e41e6e51dda6"/>
+      <attribute name="osgi.content" value="c07271df2fe2ce983f0ce511cf6323a06efae1e0ca1161ed427699b0f0912232"/>
       <attribute name="url" value="org.amdatu.bootstrap.versionprint/org.amdatu.bootstrap.versionprint-0.0.0.jar"/>
-      <attribute name="size" type="Long" value="4254"/>
+      <attribute name="size" type="Long" value="4250"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
       <attribute name="osgi.wiring.bundle" value="org.amdatu.bootstrap.versionprint"/>
-      <attribute name="bundle-version" type="Version" value="0.0.0.201510201224"/>
+      <attribute name="bundle-version" type="Version" value="0.0.0.201511041206"/>
     </capability>
     <capability namespace="osgi.wiring.host">
       <attribute name="osgi.wiring.host" value="org.amdatu.bootstrap.versionprint"/>
-      <attribute name="bundle-version" type="Version" value="0.0.0.201510201224"/>
+      <attribute name="bundle-version" type="Version" value="0.0.0.201511041206"/>
     </capability>
     <requirement namespace="osgi.wiring.package">
       <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.framework)(version&gt;=1.7.0)(!(version&gt;=2.0.0)))"/>
@@ -4591,9 +4952,9 @@
       <attribute name="version" type="Version" value="1.0.1"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="24b6f0b02dce19d248a582fa6fd0d72a4227c261f916bcec9bef83934b701704"/>
+      <attribute name="osgi.content" value="25a7ee790936e51fa6ef496c4358b8e90a82ab9a5ce18af4ac5fff3f8668b9c3"/>
       <attribute name="url" value="org.amdatu.bootstrap.webui.browseropen/org.amdatu.bootstrap.webui.browseropen-1.0.1.jar"/>
-      <attribute name="size" type="Long" value="4621"/>
+      <attribute name="size" type="Long" value="4623"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
@@ -4618,9 +4979,9 @@
       <attribute name="version" type="Version" value="1.0.2"/>
     </capability>
     <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="8ae008fbb2713e994264c7aab0c893651d710b7fb3c835909c7191ec4f8a4d75"/>
+      <attribute name="osgi.content" value="5998dae747bb1e4580cf117cadd67263e2cc388099ca962047c78f22b7576c0c"/>
       <attribute name="url" value="org.amdatu.bootstrap.webui/org.amdatu.bootstrap.webui-1.0.2.jar"/>
-      <attribute name="size" type="Long" value="272148"/>
+      <attribute name="size" type="Long" value="272152"/>
       <attribute name="mime" value="application/vnd.osgi.bundle"/>
     </capability>
     <capability namespace="osgi.wiring.bundle">
